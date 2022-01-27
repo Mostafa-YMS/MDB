@@ -1,0 +1,107 @@
+<div class="p-5 pb-3">
+  <h2>Register</h2>
+</div>
+
+<div *ngIf="alreadyRegistered" class="alert alert-danger w-75">
+  <p>Already Registered</p>
+</div>
+
+<form
+  class="w-75 m-auto"
+  (ngSubmit)="getRegisterInfo(registerForm)"
+  [formGroup]="registerForm"
+>
+  <div class="form-group py-2">
+    <label>First Name :</label>
+    <input
+      [class.is-valid]="
+        registerForm.get('first_name')?.errors == null &&
+        registerForm.get('first_name')?.touched
+      "
+      formControlName="first_name"
+      type="text"
+      class="form-control"
+    />
+    <p
+      *ngIf="
+        registerForm.get('first_name')?.errors != null &&
+        registerForm.get('first_name')?.touched
+      "
+      class="py-2 text-danger"
+    >
+      Invalid first name
+    </p>
+  </div>
+  <div class="form-group py-2">
+    <label>Last Name :</label>
+    <input
+      [class.is-valid]="
+        registerForm.get('last_name')?.errors == null &&
+        registerForm.get('last_name')?.touched
+      "
+      formControlName="last_name"
+      type="text"
+      class="form-control"
+    />
+    <p
+      *ngIf="
+        registerForm.get('last_name')?.errors != null &&
+        registerForm.get('last_name')?.touched
+      "
+      class="py-2 text-danger"
+    >
+      Invalid last name
+    </p>
+  </div>
+  <div class="form-group py-2">
+    <label>E-mail :</label>
+    <input
+      [class.is-valid]="
+        registerForm.get('email')?.errors == null &&
+        registerForm.get('email')?.touched
+      "
+      formControlName="email"
+      type="email"
+      class="form-control"
+    />
+    <p
+      *ngIf="
+        registerForm.get('email')?.errors != null &&
+        registerForm.get('email')?.touched
+      "
+      class="py-2 text-danger"
+    >
+      Invalid email
+    </p>
+  </div>
+  <div class="form-group py-2">
+    <label>Password :</label>
+    <input
+      [class.is-valid]="
+        registerForm.get('password')?.errors == null &&
+        registerForm.get('password')?.touched
+      "
+      formControlName="password"
+      type="password"
+      class="form-control"
+    />
+    <p
+      *ngIf="
+        registerForm.get('password')?.errors != null &&
+        registerForm.get('password')?.touched
+      "
+      class="py-2 text-danger"
+    >
+      Invalid password
+    </p>
+  </div>
+  <div class="d-flex justify-content-center py-4">
+    <button
+      [disabled]="registerForm.invalid"
+      type="submit"
+      class="btn btn-mine text-white"
+    >
+      Register
+    </button>
+  </div>
+</form>

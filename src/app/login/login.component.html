@@ -1,0 +1,66 @@
+<div class="p-5 pb-3">
+  <h2>Login</h2>
+</div>
+
+<form
+  class="w-75 m-auto"
+  (ngSubmit)="getLoginInfo(loginForm)"
+  [formGroup]="loginForm"
+>
+  <div class="form-group py-2">
+    <label>E-mail :</label>
+    <input
+      [class.is-valid]="
+        loginForm.get('email')?.errors == null &&
+        loginForm.get('email')?.touched
+      "
+      formControlName="email"
+      type="email"
+      class="form-control"
+    />
+    <p
+      *ngIf="
+        loginForm.get('email')?.errors != null &&
+        loginForm.get('email')?.touched
+      "
+      class="py-2 text-danger"
+    >
+      Invalid email
+    </p>
+  </div>
+  <div class="form-group py-2">
+    <label>Password :</label>
+    <input
+      [class.is-valid]="
+        loginForm.get('password')?.errors == null &&
+        loginForm.get('password')?.touched
+      "
+      formControlName="password"
+      type="password"
+      class="form-control"
+    />
+    <p
+      *ngIf="
+        loginForm.get('password')?.errors != null &&
+        loginForm.get('password')?.touched
+      "
+      class="py-2 text-danger"
+    >
+      Invalid password
+    </p>
+  </div>
+
+  <div *ngIf="loginFailed" class="alert alert-danger mt-2">
+      {{errorMessage}}
+  </div>
+
+  <div class="d-flex justify-content-center py-4">
+    <button
+      [disabled]="loginForm.invalid"
+      type="submit"
+      class="btn btn-mine text-white"
+    >
+      Login
+    </button>
+  </div>
+</form>

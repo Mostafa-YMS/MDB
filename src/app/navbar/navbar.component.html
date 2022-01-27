@@ -1,0 +1,69 @@
+<nav class="navbar navbar-expand-lg navbar-dark">
+  <div class="container-fluid">
+    <a class="navbar-brand" routerLink="home">MDB</a>
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul *ngIf="isLoggedIn" class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link" routerLink="home">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="movies">Movies</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="tv">Tv-shows</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="people">People</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="about">About</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="#">Network</a>
+        </li>
+      </ul>
+
+      <div class="nav-right ms-auto d-flex">
+        <form class="d-flex">
+          <input
+            class="form-control me-2"
+            type="search"
+            placeholder="Search"
+            aria-label="Search"
+          />
+        </form>
+
+        <div class="social-icons">
+          <i class="fab m-2 fa-facebook-square" aria-hidden="true"></i>
+          <i class="fab m-2 fa-instagram" aria-hidden="true"></i>
+          <i class="fab m-2 fa-spotify" aria-hidden="true"></i>
+          <i class="fab m-2 fa-vimeo" aria-hidden="true"></i>
+          <i class="fab m-2 fa-twitter" aria-hidden="true"></i>
+        </div>
+
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a *ngIf="!isLoggedIn" class="nav-link" routerLink="login">Login</a>
+          </li>
+          <li class="nav-item">
+            <a *ngIf="!isLoggedIn" class="nav-link" routerLink="register">Register</a>
+          </li>
+          <li class="nav-item">
+            <a *ngIf="isLoggedIn" (click)="logOut()" class="nav-link  mx-5 cursor-pointer">Logout</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</nav>
