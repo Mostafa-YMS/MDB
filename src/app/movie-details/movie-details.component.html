@@ -1,1 +1,21 @@
-<p>movie-details works!</p>
+<div class="row">
+  <div class="col-md-4">
+    <img
+      class="img-fluid my-2"
+      [src]="imageBase + itemDetails?.poster_path"
+      [alt]="itemDetails?.name + 'poster'"
+    />
+  </div>
+  <div class="col-md-8">
+    <h2 class="my-2">{{ itemDetails?.name }}{{ itemDetails?.title }}</h2>
+    <p class="secondFontColor my-2 mb-3">{{ itemDetails?.tagline }}</p>
+    <span class="bg-info p-2 rounded mx-2 fw-bolder" *ngFor="let genre of itemDetails?.genres">{{genre.name}}</span>
+    <p class="my-4">Rate: {{itemDetails?.vote_average}}</p>
+    <p class="my-4">Votes: {{itemDetails?.vote_count}}</p>
+    <p class="my-4">Popularity: {{itemDetails?.popularity}}</p>
+    <p class="my-4">Release date: {{itemDetails?.release_date}}</p>
+
+    <p class="secondFontColor my-2 lead">{{itemDetails?.overview}}</p>
+    <a target="_blank" [href]="itemDetails?.homepage">Website</a>
+  </div>
+</div>
