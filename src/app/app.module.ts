@@ -14,8 +14,9 @@ import { TvComponent } from './tv/tv.component';
 import { PeopleComponent } from './people/people.component';
 import { NetworkComponent } from './network/network.component';
 import { NotFoundComponent } from './not-found/not-found.component';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { SearchPipe } from './search.pipe';
 
 @NgModule({
   declarations: [
@@ -31,12 +32,14 @@ import { HttpClientModule } from '@angular/common/http';
     PeopleComponent,
     NetworkComponent,
     NotFoundComponent,
+    SearchPipe,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
     HttpClientModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent],

@@ -1,3 +1,7 @@
+<div class="search my-4">
+  <input [(ngModel)]='term' class="form-control m-auto w-50" type="text" placeholder="Find a movie">
+</div>
+
 <div class="row">
   <div class="col-md-4 mt-3">
     <div class="brdr w-50 my-3"></div>
@@ -11,7 +15,7 @@
     <div class="brdr w-100 my-3"></div>
   </div>
 
-  <div *ngFor="let movie of trendingMovies" class="col-md-2 position-relative">
+  <div *ngFor="let movie of trendingMovies|search:term" class="col-md-2 position-relative">
     <div
       [routerLink]="['/details', movie.media_type, movie.id]"
       class="movie my-2"
@@ -42,7 +46,7 @@
     <div class="brdr w-100 my-3"></div>
   </div>
 
-  <div *ngFor="let tv of trendingShows" class="col-md-2 position-relative">
+  <div *ngFor="let tv of trendingShows|search:term" class="col-md-2 position-relative">
     <div [routerLink]="['/details', tv.media_type, tv.id]" class="movie my-2">
       <img
         class="img-fluid"
