@@ -1,0 +1,28 @@
+<div class="search my-4">
+  <input
+    [(ngModel)]="term"
+    class="form-control m-auto w-50"
+    type="text"
+    placeholder="Find a movie or a tv show"
+    (keyup)="search()"
+  />
+</div>
+
+<div class="row">
+  <div *ngFor="let movie of searchResults" class="col-md-2 position-relative">
+    <div
+      [routerLink]="['/details', movie.media_type, movie.id]"
+      class="movie my-2"
+    >
+      <img
+        class="img-fluid"
+        [src]="imageBase + movie.poster_path"
+        [alt]="movie.title + movie.name + 'poster'"
+      />
+      <h3 class="h5 my-2">{{ movie.title }}{{ movie.name }}</h3>
+      <div class="vote">
+        {{ movie.vote_average }}
+      </div>
+    </div>
+  </div>
+</div>

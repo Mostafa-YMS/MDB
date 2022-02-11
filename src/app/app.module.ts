@@ -11,12 +11,11 @@ import { MoviesComponent } from './movies/movies.component';
 import { LoginComponent } from './login/login.component';
 import { MovieDetailsComponent } from './movie-details/movie-details.component';
 import { TvComponent } from './tv/tv.component';
-import { PeopleComponent } from './people/people.component';
-import { NetworkComponent } from './network/network.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { SearchPipe } from './search.pipe';
+import { SearchComponent } from './search/search.component';
 
 @NgModule({
   declarations: [
@@ -29,17 +28,16 @@ import { SearchPipe } from './search.pipe';
     LoginComponent,
     MovieDetailsComponent,
     TvComponent,
-    PeopleComponent,
-    NetworkComponent,
     NotFoundComponent,
     SearchPipe,
+    SearchComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
